@@ -1,0 +1,417 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  color: #e2e2e2;
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: #000;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Kalam', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.logo-mark {
+  color: #c084fc;
+  font-size: 26px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-actions select {
+  background: #111;
+  color: #ccc;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.param {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.param label {
+  font-size: 12px;
+  color: #888;
+  font-family: 'Kalam', cursive;
+}
+
+.param input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  width: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  font-family: 'Kalam', cursive;
+}
+
+.header-actions button {
+  background: #c084fc;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: transform 0.15s;
+}
+
+.header-actions button:hover {
+  transform: translateY(-1px);
+}
+
+/* Main */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #000;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panel.grow {
+  flex: 1;
+  min-height: 0;
+}
+
+.panel-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #555;
+}
+
+.sidebar pre {
+  font-family: 'Kalam', cursive;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.04);
+  border: 1px solid rgba(167, 139, 250, 0.1);
+  border-radius: 10px;
+  padding: 14px;
+  overflow-x: auto;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controls button {
+  flex: 1;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #111;
+  color: #aaa;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controls button:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.controls button.play {
+  background: #c084fc;
+  color: #000;
+  border-color: #c084fc;
+  font-weight: 700;
+}
+
+.speed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.speed label {
+  font-size: 11px;
+  color: #555;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.speed input {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 3px;
+  background: #222;
+  border-radius: 2px;
+  outline: none;
+}
+
+.speed input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #c084fc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.stats div {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+
+.stats div.full {
+  grid-column: 1 / -1;
+}
+
+.stats span {
+  display: block;
+  font-size: 10px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.stats b {
+  font-family: 'Kalam', cursive;
+  font-size: 22px;
+  color: #fff;
+}
+
+/* Call Stack */
+.stack {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stack-item {
+  font-family: 'Kalam', cursive;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+.stack-item.active {
+  border-color: #fbbf24;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.05);
+}
+
+.stack-item.returned {
+  opacity: 0.3;
+}
+
+/* Canvas */
+.canvas-area {
+  flex: 1;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+.canvas-label {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #333;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#treeSvg {
+  display: none;
+}
+
+#treeSvg.active {
+  display: block;
+}
+
+/* Empty state */
+.empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-family: 'Kalam', cursive;
+  font-size: 18px;
+}
+
+.empty strong {
+  color: #c084fc;
+}
+
+/* Tree SVG styles */
+.tree-edge {
+  stroke: #333;
+  stroke-width: 1.5;
+  fill: none;
+  filter: url(#roughLine);
+  transition: stroke 0.4s ease;
+}
+
+.tree-edge.active {
+  stroke: #c084fc;
+  stroke-width: 2;
+}
+
+.tree-node {
+  cursor: default;
+}
+
+.tree-circle {
+  fill: #000;
+  stroke: #444;
+  stroke-width: 2;
+  filter: url(#rough);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* States */
+.tree-node.call .tree-circle {
+  stroke: #60a5fa;
+}
+
+.tree-node.return .tree-circle {
+  stroke: #34d399;
+}
+
+.tree-node.memo .tree-circle {
+  stroke: #a78bfa;
+}
+
+.tree-node.active .tree-circle {
+  stroke: #fbbf24;
+  stroke-width: 3;
+  fill: rgba(251, 191, 36, 0.08);
+}
+
+.tree-label {
+  font-family: 'Kalam', cursive;
+  font-size: 15px;
+  fill: #ddd;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.tree-result {
+  font-family: 'Kalam', cursive;
+  font-size: 13px;
+  fill: #34d399;
+  text-anchor: middle;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tree-node.return .tree-result,
+.tree-node.memo .tree-result {
+  opacity: 1;
+}
+
+/* Entrance */
+.tree-node.entering {
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 2px;
+}
